@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class='bac'>
     <div class="continer">
       <p class="login">L O G I N</p>
       <div class="logic">
@@ -56,6 +56,11 @@ export default {
   margin: 0;
   padding: 0;
 }
+.bac{
+  border: 1px solid white;
+  height: 100%;
+  background: rgba(129, 236, 236,0.5);
+}
 .continer {
   height: 100%;
   width: 100%;
@@ -63,7 +68,6 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   margin: 20px auto;
-  border: 1px solid black;
   border-radius: 10px;
   width: 300px;
   height: 500px;
