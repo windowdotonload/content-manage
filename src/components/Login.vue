@@ -5,11 +5,10 @@
       <div class="logic">
         <form>
           <p>username</p>
-          <input v-model="user.name" name="username" type="text" />
+          <input style="background: rgba(129, 236, 236,0.3);margin:3px 0;width:99.9%;height:30px;border:none;border-radius:3px" v-model="user.name" name="username" type="text" />
           <p>password</p>
-          <input v-model="user.password" name="password" type="password" />
-          <input type='button' value="login" class='login-btn' @click="login"
-          />
+          <input style="background: rgba(129, 236, 236,0.3);margin:3px 0;width:99.9%;height:30px;border:none;border-radius:3px"  v-model="user.password" name="password" type="password" />
+          <input type='button' value="login" class='login-btn' @click="login"/>
         </form>
       </div>
       <div>
@@ -57,7 +56,7 @@ export default {
   padding: 0;
 }
 .bac{
-  border: 1px solid white;
+  border: 1px solid rgba(129, 236, 236,0.5);
   height: 100%;
   background: rgba(129, 236, 236,0.5);
 }
@@ -87,11 +86,16 @@ p {
   font-weight: bold;
 }
 .login-btn{
+  outline: 0px;
   height: 30px;
   background:#00cec9;
   border: none;
   width:80%;
+  margin-top: 30px;
   margin-left: 50%;
   transform: translate(-50%);
+}
+.login-btn:focus{
+  opacity: 0.5;
 }
 </style>

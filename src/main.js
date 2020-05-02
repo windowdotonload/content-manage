@@ -7,7 +7,7 @@ import axios from 'axios'
 import '../plugins/element.js'
 import 'element-ui/lib/theme-chalk/index.css';
 
-import '../lib/mui/css/mui.min.css'
+
 import 'F:/WEBFRONT/project/contentmanage/src/assets/css/global.css'
 
 axios.defaults.baseURL = 'http://47.97.195.37/api'
