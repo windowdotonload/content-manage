@@ -1,101 +1,107 @@
 <template>
-  <div class='bac'>
+  <div class="bac">
     <div class="continer">
-      <p class="login">L O G I N</p>
-      <div class="logic">
-        <form>
-          <p>username</p>
-          <input style="background: rgba(129, 236, 236,0.3);margin:3px 0;width:99.9%;height:30px;border:none;border-radius:3px" v-model="user.name" name="username" type="text" />
-          <p>password</p>
-          <input style="background: rgba(129, 236, 236,0.3);margin:3px 0;width:99.9%;height:30px;border:none;border-radius:3px"  v-model="user.password" name="password" type="password" />
-          <input type='button' value="login" class='login-btn' @click="login"/>
-        </form>
+      <div class="login-p">
+        <h2>LOGIN</h2>
       </div>
-      <div>
-        <!-- <p>
-          还没有账号？
-          <a href="/register">点击注册</a>
-        </p> -->
-      </div>
+      <el-form ref="refFrom" :rules="fromRules" :model="loginFrom" class="forms" label-width="0">
+        <el-form-item prop="username">
+          <el-input v-model="loginFrom.username" prefix-icon="iconfont icon-mima"></el-input>
+        </el-form-item>
+
+        <el-form-item prop="password">
+          <el-input type="password" v-model="loginFrom.password" prefix-icon="iconfont icon-user"></el-input>
+        </el-form-item>
+
+        <el-form-item class="btn">
+          <el-button type="primary" @click="login">登录</el-button>
+          <el-button type="info" @click="reset">重置</el-button>
+        </el-form-item>
+      </el-form>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  data(){
+  data() {
     return {
-      user:{name:'',password:''}
-    }
+      loginFrom: {
+        username: "",
+        password: ""
+      },
+      fromRules: {
+        username: [
+          { required: true, message: "请输入用户名", trigger: "blur" },
+          { min: 3, max: 10, message: "长度在 3 到 5 个字符", trigger: "blur" }
+        ],
+        password: [
+          { required: true, message: "请输入名字", trigger: "blur" },
+          { min: 6, max: 15, message: "长度在 3 到 5 个字符", trigger: "blur" }
+        ]
+      }
+    };
   },
-  created(){
-  },
-  methods:{ 
-    login(){
-      this.$http.post('user',this.user).then( res => {
-          if (res.data.err_code === 2) {
-            // console.log(res)
-            return this.$message.error('用户名或密码不能为空')
-          }else{
-            // console.log(res)
-            if(res.data.err_code === 0) {
-              this.$router.push('/manage')
-              return this.$message.success('登录')
-            }
-            return this.$message.error('用户名或密码错误')  
-          }
-      })
+  methods: {
+    reset() {
+      this.$refs.refFrom.resetFields();
+    },
+    login() {
+      this.$refs.refFrom.validate(async val => {
+        if (val === "false") return;
+        const { data: res } = await this.$http.post("login", this.loginFrom);
+        if (res.meta.status != 200) {
+          this.$message.error("登录失败");
+        } else {
+          this.$message.success("登录成功");
+          window.sessionStorage.setItem("token", res.data.token);
+          this.$router.push("manage");
+        }
+      });
     }
   }
 };
 </script>
 
-<style scoped>
-* {
+<style>
+html,
+body {
   margin: 0;
   padding: 0;
-}
-.bac{
-  border: 1px solid rgba(129, 236, 236,0.5);
   height: 100%;
-  background: rgba(129, 236, 236,0.5);
+}
+.bac {
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(135deg, #3498db, #e74c3c, #e67e22);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .continer {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 20px auto;
-  border-radius: 10px;
-  width: 300px;
-  height: 500px;
-  background-image: linear-gradient(135deg, #00cec9, #a29bfe, #3498db);
+  margin: 100px auto;
+  width: 500px;
+  height: 300px;
+  border-radius: 20px;
+  background: #dff9fb;
+  position: relative;
 }
-.login {
-  height: 30%;
+.forms {
+  position: absolute;
+  bottom: 0;
+  box-sizing: border-box;
+  padding: 20px;
   width: 100%;
+}
+.btn {
   display: flex;
-  align-items: center;
   justify-content: center;
-  font-size: 30px;
-  font-weight: bolder;
 }
-p {
-  color: black;
-  font-weight: bold;
-}
-.login-btn{
-  outline: 0px;
-  height: 30px;
-  background:#00cec9;
-  border: none;
-  width:80%;
-  margin-top: 30px;
-  margin-left: 50%;
-  transform: translate(-50%);
-}
-.login-btn:focus{
-  opacity: 0.5;
+.login-p {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: 10px 0;
 }
 </style>

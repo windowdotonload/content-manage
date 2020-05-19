@@ -5,7 +5,6 @@
 
       <el-container class="continer">
         <el-aside class="aside" width="200px">
-          <el-col :span="12">
             <!-- 一级菜单选项 -->
             <el-menu
               default-active="2"
@@ -23,86 +22,12 @@
                   <span>用户管理</span>
                 </template>
                 <!-- 二级子菜单选项 -->
-                <el-submenu index="1-4">
-                  <template slot="title">
-                    <i class="el-icon-location"></i>
-                    <span>子选项</span>
-                  </template>
                   <el-menu-item index="1-4-1">选项1</el-menu-item>
-                </el-submenu>
-              </el-submenu>
-
-              <!-- 商品管理 -->
-
-              <el-submenu index="2">
-                <template slot="title">
-                  <i class="el-icon-location"></i>
-                  <span>商品管理</span>
-                </template>
-                <!-- 二级子菜单选项 -->
-                <el-submenu index="1-4">
-                  <template slot="title">
-                    <i class="el-icon-location"></i>
-                    <span>子选项</span>
-                  </template>
-                  <el-menu-item index="1-4-1">选项1</el-menu-item>
-                </el-submenu>
-              </el-submenu>
-
-              <!-- 权限管理 -->
-
-              <el-submenu index="3">
-                <template slot="title">
-                  <i class="el-icon-location"></i>
-                  <span>权限管理</span>
-                </template>
-                <!-- 二级子菜单选项 -->
-                <el-submenu index="1-4">
-                  <template slot="title">
-                    <i class="el-icon-location"></i>
-                    <span>子选项</span>
-                  </template>
-                  <el-menu-item index="1-4-1">选项1</el-menu-item>
-                </el-submenu>
-              </el-submenu>
-
-              <!-- 订单管理 -->
-
-              <el-submenu index="4">
-                <template slot="title">
-                  <i class="el-icon-location"></i>
-                  <span>订单管理</span>
-                </template>
-                <!-- 二级子菜单选项 -->
-                <el-submenu index="1-4">
-                  <template slot="title">
-                    <i class="el-icon-location"></i>
-                    <span>子选项</span>
-                  </template>
-                  <el-menu-item index="1-4-1">选项1</el-menu-item>
-                </el-submenu>
-              </el-submenu>
-
-              <!-- 数据统计 -->
-
-              <el-submenu index="5">
-                <template slot="title">
-                  <i class="el-icon-location"></i>
-                  <span>数据统计</span>
-                </template>
-                <!-- 二级子菜单选项 -->
-                <el-submenu index="1-4">
-                  <template slot="title">
-                    <i class="el-icon-location"></i>
-                    <span>子选项</span>
-                  </template>
-                  <el-menu-item index="1-4-1">选项1</el-menu-item>
-                </el-submenu>
+                
               </el-submenu>
 
               
             </el-menu>
-          </el-col>
         </el-aside>
         <el-main class="main">Main</el-main>
       </el-container>
