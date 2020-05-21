@@ -12,9 +12,23 @@ import {
     Form,
     FormItem,
     Input,
-    Button
+    Button,
+    Breadcrumb,
+    BreadcrumbItem,
+    Card,
+    Row,
+    Col,
+    Table,
+    TableColumn
 } from 'element-ui'
 
+Vue.use(TableColumn)
+Vue.use(Table)
+Vue.use(Col)
+Vue.use(Row)
+Vue.use(Card)
+Vue.use(BreadcrumbItem)
+Vue.use(Breadcrumb)
 Vue.use(Button)
 Vue.use(Form)
 Vue.use(FormItem)
