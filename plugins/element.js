@@ -19,9 +19,18 @@ import {
     Row,
     Col,
     Table,
-    TableColumn
+    TableColumn,
+    Switch,
+    Tooltip,
+    Pagination,
+    Dialog,
+    MessageBox
 } from 'element-ui'
 
+Vue.use(Dialog)
+Vue.use(Pagination)
+Vue.use(Tooltip)
+Vue.use(Switch)
 Vue.use(TableColumn)
 Vue.use(Table)
 Vue.use(Col)
@@ -42,3 +51,4 @@ Vue.use(Submenu)
 Vue.use(MenuItem)
 Vue.use(MenuItemGroup)
 Vue.prototype.$message = Message 
+Vue.prototype.$confirm = MessageBox.confirm
