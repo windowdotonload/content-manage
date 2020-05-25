@@ -9,12 +9,12 @@ import 'element-ui/lib/theme-chalk/index.css';
 import './assets/iconfile/fonts/iconfont.css'
 
 
-import 'F:/WEBFRONT/project/contentmanage/src/assets/css/global.css'
+import './assets/css/global.css'
 
 axios.defaults.baseURL = 'http://47.97.195.37:8080/api/private/v1/'
-axios.interceptors.request.use( config => {
-  config.headers.Authorization = window.sessionStorage.getItem('token')
-  return config
+axios.interceptors.request.use(config => {
+    config.headers.Authorization = window.sessionStorage.getItem('token')
+    return config
 })
 Vue.prototype.$http = axios
 
@@ -22,7 +22,7 @@ Vue.prototype.$http = axios
 Vue.config.productionTip = false
 
 new Vue({
-  router,
-  store,
-  render: h => h(App)
+    router,
+    store,
+    render: h => h(App)
 }).$mount('#app')

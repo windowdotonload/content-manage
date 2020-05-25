@@ -62,12 +62,12 @@ export default {
         "145": "iconfont icon-data"
       },
       istoggle: false,
-      active: "",
+      active: ""
     };
   },
   created() {
     this.getMenuList();
-    this.active = window.sessionStorage.getItem('active')
+    this.active = window.sessionStorage.getItem("active")
   },
   methods: {
     logout() {
@@ -82,9 +82,8 @@ export default {
     toggle() {
       this.istoggle = !this.istoggle;
     },
-    state(path){
-      window.sessionStorage.setItem('active',path)
-      this.active = path
+    state(path) {
+      window.sessionStorage.setItem("active", path);
     }
   }
 };
