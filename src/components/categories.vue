@@ -141,7 +141,7 @@ export default {
       });
       this.twoCateList = res.data;
     },
-    // 设置分类名称的父级名称
+    // 设置添加分类的父级名称
     catChange() {
       if (this.catValue.length > 0) {
         this.catForm.cat_pid = this.catValue[this.catValue.length - 1];
