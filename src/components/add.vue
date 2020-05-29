@@ -180,4 +180,7 @@ export default {
 .el-checkbox {
   margin: 0 10px !important;
 }
+.el-button{
+  margin-left: 18px;
+}
 </style>
