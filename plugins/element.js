@@ -29,9 +29,23 @@ import {
     Tree,
     Select,
     Option,
-    Cascader
+    Cascader,
+    Alert,
+    Steps,
+    Step,
+    Tabs,
+    TabPane,
+    Checkbox,
+    CheckboxGroup,
 } from 'element-ui'
 
+Vue.use(Checkbox)
+Vue.use(CheckboxGroup)
+Vue.use(TabPane)
+Vue.use(Tabs)
+Vue.use(Step)
+Vue.use(Steps)
+Vue.use(Alert)
 Vue.use(Cascader)
 Vue.use(Option)
 Vue.use(Select)

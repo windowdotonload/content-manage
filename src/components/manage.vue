@@ -36,6 +36,7 @@
                 :index="'/'+item1.path"
                 v-for="item1 in item.children"
                 :key="item1.id"
+                v-if="item1.authName != '分类参数'"
               >{{item1.authName}}</el-menu-item>
             </el-submenu>
           </el-menu>
@@ -67,7 +68,7 @@ export default {
   },
   created() {
     this.getMenuList();
-    this.active = window.sessionStorage.getItem("active")
+    this.active = window.sessionStorage.getItem("active");
   },
   methods: {
     logout() {

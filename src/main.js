@@ -8,7 +8,10 @@ import '../plugins/element.js'
 import 'element-ui/lib/theme-chalk/index.css'
 import './assets/iconfile/fonts/iconfont.css'
 import ZkTable from 'vue-table-with-tree-grid'
-
+import VueQuillEditor from 'vue-quill-editor'
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
 
 import './assets/css/global.css'
 
@@ -20,7 +23,19 @@ axios.interceptors.request.use(config => {
 Vue.prototype.$http = axios
 
 Vue.use(ZkTable)
+Vue.use(VueQuillEditor)
 Vue.config.productionTip = false
+Vue.filter('dataFormat', (date) => {
+    let dt = new Date(date)
+    let y = dt.getFullYear()
+    let m = (dt.getMonth() + 1 + '').padStart(2, '0')
+    let d = (dt.getDate() + 1 + '').padStart(2, '0')
+    let hh = (dt.getHours() + 1 + '').padStart(2, '0')
+    let mm = (dt.getMinutes() + 1 + '').padStart(2, '0')
+    let ss = (dt.getSeconds() + 1 + '').padStart(2, '0')
+
+    return `${y}-${m}-${d} ${hh}-${mm}-${ss}`
+})
 
 new Vue({
     router,
