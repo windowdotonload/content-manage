@@ -37,8 +37,12 @@ import {
     TabPane,
     Checkbox,
     CheckboxGroup,
+    Timeline,
+    TimelineItem
 } from 'element-ui'
 
+Vue.use(Timeline)
+Vue.use(TimelineItem)
 Vue.use(Checkbox)
 Vue.use(CheckboxGroup)
 Vue.use(TabPane)

@@ -9,6 +9,8 @@ import roles from '../components/roles.vue'
 import categories from '../components/categories.vue'
 import goods from '../components/goods.vue'
 import add from '../components/add.vue'
+import orders from '../components/orders.vue'
+import reports from '../components/reports.vue'
 
 
 
@@ -29,6 +31,8 @@ const routes = [
             { path: '/categories', component: categories },
             { path: '/goods', component: goods },
             { path: '/goods/add', component: add },
+            { path: '/orders', component: orders },
+            { path: '/reports', component: reports },
         ]
     }
 
