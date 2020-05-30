@@ -45,9 +45,16 @@
         <el-table-column label="操作">
           <template slot-scope="slotUsers">
             <!-- 修改用户按钮 -->
-            <el-button type="primary" icon="el-icon-edit" circle @click="editUser(slotUsers)"></el-button>
+            <el-button
+              type="primary"
+              size="mini"
+              icon="el-icon-edit"
+              circle
+              @click="editUser(slotUsers)"
+            ></el-button>
             <!-- 删除用户按钮 -->
             <el-button
+              size="mini"
               type="danger"
               icon="el-icon-delete"
               circle
@@ -56,6 +63,7 @@
             <!-- 分配角色按钮 -->
             <el-tooltip class="item" effect="dark" content="分配角色" placement="top">
               <el-button
+                size="mini"
                 @click="allocationR(slotUsers.row)"
                 type="warning"
                 icon="el-icon-setting"
@@ -342,10 +350,10 @@ export default {
       this.roleVisible = false;
     },
     // 重置角色选择列表
-    reset(){
+    reset() {
       // 角色列表选择框双向绑定的数据
-      this.roleValue = ''
-      this.rolesList = {}
+      this.roleValue = "";
+      this.rolesList = {};
     }
   }
 };

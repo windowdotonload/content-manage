@@ -58,9 +58,10 @@
         <el-table-column prop="roleDesc" label="角色描述"></el-table-column>
         <el-table-column prop="address" label="操作">
           <template slot-scope="scope">
-            <el-button type="primary" icon="el-icon-edit">编辑</el-button>
-            <el-button type="danger" icon="el-icon-delete">删除</el-button>
+            <el-button size="mini" type="primary" icon="el-icon-edit">编辑</el-button>
+            <el-button size="mini" type="danger" icon="el-icon-delete">删除</el-button>
             <el-button
+              size="mini"
               @click="showRightsDialog(scope.row)"
               type="warning"
               icon="el-icon-setting"
@@ -164,8 +165,8 @@ export default {
         rids: str
       });
       if (res.meta.status != 200) return this.$message.error("分配权限失败");
-      this.$message.success("分配权限成功")
-      this.getRoleList()
+      this.$message.success("分配权限成功");
+      this.getRoleList();
       this.dialogVisible = false;
     }
   }
