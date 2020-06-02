@@ -20,7 +20,7 @@
         <template slot="state" slot-scope="scope">
           <i style="color:lightgreen" v-if="scope.row.cat_deleted" class="el-icon-success"></i>
           <i style="color:lightgreen" v-else class="el-icon-error"></i>
-        </template>order
+        </template>
         <!-- 自定义排序插槽 -->
         <template slot="order" slot-scope="scopeorder">
           <el-tag v-if="scopeorder.row.cat_level === 0">level 1</el-tag>
